@@ -40,7 +40,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
 
 <br><br><br><br><br><br><br>
 
-- ## Quem que ta onfire?
+- ## Quem que ta on fire?
 
 <table>
   <tr>
