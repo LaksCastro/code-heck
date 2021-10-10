@@ -57,5 +57,5 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
       </a>
     </td>
   </tr>
- </table>
+</table>
 
