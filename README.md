@@ -42,7 +42,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
 - Tempo: **4 horas**                                                          
 - Live: **[disponível](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - _Hunter X Hunter_
-
+- [Link do Design](https://dribbble.com/shots/7477712-Minimalist-Clock-App-UI-Kit)
 
 <hr />
 
