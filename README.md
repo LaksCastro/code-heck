@@ -38,7 +38,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
   <img src="https://user-images.githubusercontent.com/51419598/136677042-2c309a32-dcef-4760-a949-87a76277824c.png" width="350">
 </details>
 
-- CodeHeck **#0**
+- **CodeHeck #0**
 - Tempo: **4 horas**                                                          
 - Live: **[disponível](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - Design: **[Disponível no Dribble](https://dribbble.com/shots/7477712-Minimalist-Clock-App-UI-Kit)**
