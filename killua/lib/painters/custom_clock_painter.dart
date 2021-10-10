@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:code_heck_00/main.dart';
+import 'package:killua/main.dart';
 import 'package:flutter/material.dart';
 
 class CustomClockPainter extends CustomPainter {

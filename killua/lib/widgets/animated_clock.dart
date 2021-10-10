@@ -1,5 +1,5 @@
-import 'package:code_heck_00/main.dart';
-import 'package:code_heck_00/painters/custom_clock_painter.dart';
+import 'package:killua/main.dart';
+import 'package:killua/painters/custom_clock_painter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:code_heck_00/main.dart';
+import 'package:killua/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,11 @@ class _DateTimerState extends State<DateTimer> {
   }
 
   InlineSpan _buildTimer() {
-    final hour = '${_now.hour - 12}'.padLeft(2, '0');
+    // ignore: prefer_typing_uninitialized_variables
+    var hour;
+    _now.hour <= 12
+        ? hour = '${_now.hour}'.padLeft(2, '0')
+        : hour = '${_now.hour - 12}'.padLeft(2, '0');
     final minute = '${_now.minute}'.padLeft(2, '0');
 
     return TextSpan(

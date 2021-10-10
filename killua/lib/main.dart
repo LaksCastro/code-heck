@@ -1,5 +1,6 @@
-import 'package:code_heck_00/widgets/animated_clock.dart';
-import 'package:code_heck_00/widgets/date_timer.dart';
+import 'package:flutter/services.dart';
+import 'package:killua/widgets/animated_clock.dart';
+import 'package:killua/widgets/date_timer.dart';
 import 'package:flutter/material.dart';
 
 const kBackgroundColor = Color(0xFF212628);
@@ -9,7 +10,15 @@ const kCardColor = Color(0xFF2B353A);
 const kSecondaryColor = Color(0xFF297CDF);
 const kFontFamily = 'Kanit-Regular';
 
-void main() => runApp(const App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+    ],
+  );
+  runApp(const App());
+}
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
