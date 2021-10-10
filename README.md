@@ -1,6 +1,6 @@
 - ## CodeHeck
 
-🎨 Uma pequena série de vídeos no Youtube codando alguns protótipos do Figma e do Dribble
+🎨 Uma pequena série de vídeos no Youtube codando alguns protótipos do Figma e do Dribble.
 
 Em resumo, essa série terá bastante:
 
@@ -14,14 +14,19 @@ Se quiser participar das lives que vão ocorrer todo final de semana, [só colar
 
 As lives podem mudar de foco, de conteúdo. A intenção é se divertir, construir alguns projetos e aprender. 
 
+<hr />
+
 - ## Killua
 
 <a href="https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s">
-  <img align="right" src="https://user-images.githubusercontent.com/51419598/136665913-e3601dad-99a3-4240-b92f-dd5329fcd9ba.png" height="300">
+  <img src="https://user-images.githubusercontent.com/51419598/136665913-e3601dad-99a3-4240-b92f-dd5329fcd9ba.png" height="300">
 </a>
 
+<br>
+<br>
+  
 - CodeHeck **#0**
-- Tempo: **4 horas**
+- Tempo: **4 horas**                                                          
 - Live: **[disponível](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - _Hunter X Hunter_
 
@@ -38,9 +43,15 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
   <img src="https://user-images.githubusercontent.com/51419598/136677042-2c309a32-dcef-4760-a949-87a76277824c.png" width="350">
 </details>
 
-<br><br><br><br><br><br><br>
+<hr />
 
-- ## Quem que ta on fire?
+- ## Shinoa
+
+Secret vault.
+
+<hr />
+
+- ## Quem que tá on fire?
 
 <table>
   <tr>
@@ -58,4 +69,3 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
     </td>
   </tr>
 </table>
-
