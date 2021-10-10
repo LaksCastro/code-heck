@@ -21,7 +21,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
 </a>
 
 - CodeHeck **#0**
-- Tempo: **4horas**
+- Tempo: **4 horas**
 - Live: **[disponível](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - _Hunter X Hunter_
 
