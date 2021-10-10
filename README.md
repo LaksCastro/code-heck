@@ -38,4 +38,24 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
   <img src="https://user-images.githubusercontent.com/51419598/136677042-2c309a32-dcef-4760-a949-87a76277824c.png" width="350">
 </details>
 
+<br><br><br><br><br><br><br>
+
+- ## Quem que ta on?
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/luanbatistadev">
+        <img src="https://avatars.githubusercontent.com/u/56078396?v=4" width="100px;" alt=""/><br />
+       <sub><b>Luan Rafael</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LaksCastro">
+        <img src="https://avatars2.githubusercontent.com/u/51419598?s=400&v=4" width="100px;" alt=""/><br />
+       <sub><b>Laks Castro</b></sub>
+      </a>
+    </td>
+  </tr>
+ </table>
 
