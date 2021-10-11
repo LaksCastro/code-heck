@@ -64,10 +64,6 @@ class CustomClockPainter extends CustomPainter {
     required double radians,
     required double width,
   }) {
-    assert((() {
-      return true;
-    })());
-
     canvas.save();
 
     final paint = Paint()..color = color;
