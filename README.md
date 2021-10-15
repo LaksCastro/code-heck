@@ -52,8 +52,6 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
   <img src="https://user-images.githubusercontent.com/51419598/137382448-1c85237d-2d4d-433f-97e5-5c651809ed7a.png" height="300">
 </a>
 
-Secret vault.
-
 <hr />
 
 - ## Quem que tá on fire?
