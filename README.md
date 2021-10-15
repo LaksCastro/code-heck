@@ -1,4 +1,4 @@
-<a href="/README-EN.md"><img src="https://img.shields.io/badge/English-README-%23C21B42"></a>
+<a href="/README-EN.md"><img src="https://img.shields.io/badge/README-English-%23C21B42"></a>
 
 
 - ## CodeHeck
