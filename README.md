@@ -1,3 +1,6 @@
+<img src="https://img.shields.io/badge/English-README-%23C21B42">
+
+
 - ## CodeHeck
 
 🎨 Uma pequena série de vídeos no Youtube codando alguns protótipos do Figma e do Dribble.
