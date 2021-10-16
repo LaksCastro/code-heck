@@ -56,7 +56,7 @@ class _KeyBoardState extends State<KeyBoard> {
                 style: ButtonStyle(
                     shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
+                      borderRadius: BorderRadius.circular(200),
                       side: const BorderSide(color: Colors.red)),
                 )),
                 onPressed: () {
