@@ -76,7 +76,7 @@ class _DisplayState extends State<Display> {
           children: [
             _buildTopButtons(),
             _buildHistory(),
-            _buildOperation(),
+            // _buildOperation(),
           ],
         ),
       ),

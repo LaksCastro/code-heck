@@ -1,4 +1,4 @@
-package com.example.shinoa
+package io.lakscastro.shinoa
 
 import io.flutter.embedding.android.FlutterActivity
 
