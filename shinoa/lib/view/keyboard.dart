@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:shinoa/theme.dart';
 
 class KeyBoard extends StatefulWidget {
   const KeyBoard({Key? key}) : super(key: key);
@@ -54,11 +56,13 @@ class _KeyBoardState extends State<KeyBoard> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(200),
-                      side: const BorderSide(color: Colors.red)),
-                )),
+                  backgroundColor: MaterialStateProperty.all(kPaperColor),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
                 onPressed: () {
                   if (buttons[index] == 'C') {
                     clearScreenOp();
