@@ -64,14 +64,53 @@ class _DisplayState extends State<Display> {
 
   Widget _buildHistory() {
     return Expanded(
-      child: ListView(
-        shrinkWrap: true,
-        children: const [
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: TextStyle(color: kTextColor),
+      child: Stack(
+        children: [
+          ListView(
+            physics: const BouncingScrollPhysics(),
+            shrinkWrap: true,
+            reverse: true,
+            children: const [
+              Text(
+                '88 x 4 + 1900 - 120 / 4',
+                style: _kHistoryTextStyle,
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '88 x 4 + 1900 - 120 / 4',
+                style: _kHistoryTextStyle,
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '88 x 4 + 1900 - 120 / 4',
+                style: _kHistoryTextStyle,
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '88 x 4 + 1900 - 120 / 4',
+                style: _kHistoryTextStyle,
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '88 x 4 + 1900 - 120 / 4',
+                style: _kHistoryTextStyle,
+                textAlign: TextAlign.right,
+              ),
+            ],
+          ),
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    kBackgroundColor,
+                    Colors.transparent,
+                    kBackgroundColor,
+                  ],
+                ),
+              ),
             ),
           ),
         ],
@@ -81,12 +120,17 @@ class _DisplayState extends State<Display> {
 
   static final _kEqualTextStyle = TextStyle(
     color: kAccentLightColor,
-    fontSize: 36,
+    fontSize: 40,
   );
 
   static const _kResultTextStyle = TextStyle(
     color: kLightText,
-    fontSize: 36,
+    fontSize: 40,
+  );
+
+  static const _kHistoryTextStyle = TextStyle(
+    color: kTextColor,
+    fontSize: 20,
   );
 
   Widget _buildResult() {

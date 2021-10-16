@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shinoa/theme.dart';
-import 'package:shinoa/view/calculator.dart';
+
+import 'custom/no_glow_scroll_behavior.dart';
+import 'view/calculator.dart';
+
+import 'theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +23,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      builder: (context, child) {
+        return ScrollConfiguration(
+          behavior: NoGlowScrollBehavior(),
+          child: child!,
+        );
+      },
       theme: ThemeData(
         fontFamily: kFontFamily,
         primarySwatch: Colors.blue,
