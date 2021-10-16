@@ -21,7 +21,6 @@ class _KeyBoardState extends State<KeyBoard> {
 
   final List<String> buttons = [
     'C',
-    'DEL',
     '%',
     '/',
     '7',
@@ -52,17 +51,40 @@ class _KeyBoardState extends State<KeyBoard> {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),
           itemBuilder: (BuildContext contex, int index) {
+            bool equal = buttons[index] == '=';
+            bool ce = buttons[index] == 'C';
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(kPaperColor),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
-                ),
+                style: ce
+                    ? ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(kBackgroundColor),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                              side: const BorderSide(color: kPaperColor)),
+                        ),
+                      )
+                    : equal
+                        ? ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(kAccentColor),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          )
+                        : ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(kPaperColor),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          ),
                 onPressed: () {
                   if (buttons[index] == 'C') {
                     clearScreenOp();
@@ -83,6 +105,7 @@ class _KeyBoardState extends State<KeyBoard> {
                 },
                 child: Text(
                   buttons[index],
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
             );
