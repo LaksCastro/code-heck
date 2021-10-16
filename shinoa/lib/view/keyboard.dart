@@ -53,6 +53,12 @@ class _KeyBoardState extends State<KeyBoard> {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: const BorderSide(color: Colors.red)),
+                )),
                 onPressed: () {
                   if (buttons[index] == 'C') {
                     clearScreenOp();
