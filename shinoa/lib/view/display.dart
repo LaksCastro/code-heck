@@ -13,12 +13,15 @@ class _DisplayState extends State<Display> {
 
   Widget _buildMenuButton() {
     return Row(
-      children: [
+      children:  [
         Padding(
-          padding: const EdgeInsets.only(right: _kButtonLabelPadding),
-          child: MenuHamburger(),
+          padding:const EdgeInsets.only(right: _kButtonLabelPadding),
+          child: Icon(
+            Icons.menu,
+            color: kAccentLightColor,
+          ),
         ),
-        Text(
+        const Text(
           'MENU',
           style: TextStyle(
             color: kTextColor,
@@ -30,8 +33,8 @@ class _DisplayState extends State<Display> {
 
   Widget _buildBackspaceButton() {
     return Row(
-      children: [
-        Text(
+      children:  [
+        const Text(
           'MENU',
           style: TextStyle(
             color: kTextColor,
@@ -60,15 +63,43 @@ class _DisplayState extends State<Display> {
   }
 
   Widget _buildHistory() {
-    return ListView(
-      shrinkWrap: true,
-      children: const [
-        Align(
-          alignment: Alignment.centerRight,
-          child: Text(
-            '88 x 4 + 1900 - 120 / 4',
-            style: TextStyle(color: kTextColor),
+    return Expanded(
+      child: ListView(
+        shrinkWrap: true,
+        children: const [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Text(
+              '88 x 4 + 1900 - 120 / 4',
+              style: TextStyle(color: kTextColor),
+            ),
           ),
+        ],
+      ),
+    );
+  }
+
+  static final _kEqualTextStyle = TextStyle(
+    color: kAccentLightColor,
+    fontSize: 36,
+  );
+
+  static const _kResultTextStyle = TextStyle(
+    color: kLightText,
+    fontSize: 36,
+  );
+
+  Widget _buildResult() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:  [
+        Text(
+          '=',
+          style: _kEqualTextStyle,
+        ),
+        const Text(
+          '2.222',
+          style: _kResultTextStyle,
         ),
       ],
     );
@@ -83,27 +114,10 @@ class _DisplayState extends State<Display> {
           children: [
             _buildTopButtons(),
             _buildHistory(),
-            // _buildOperation(),
+            _buildResult(),
           ],
         ),
       ),
-    );
-  }
-}
-
-class MenuHamburger extends StatefulWidget {
-  const MenuHamburger({Key? key}) : super(key: key);
-
-  @override
-  _MenuHamburgerState createState() => _MenuHamburgerState();
-}
-
-class _MenuHamburgerState extends State<MenuHamburger> {
-  @override
-  Widget build(BuildContext context) {
-    return Icon(
-      Icons.menu,
-      color: kAccentLightColor,
     );
   }
 }

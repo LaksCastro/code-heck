@@ -3,10 +3,12 @@ import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/calculator.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: Calculator(),
+      home: const Calculator(),
     );
   }
 }
