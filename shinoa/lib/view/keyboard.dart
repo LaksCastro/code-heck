@@ -45,8 +45,17 @@ class _KeyBoardState extends State<KeyBoard> {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
+      Row(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 25,
+            color: kAccentColor,
+          )
+        ],
+      ),
       Padding(
-        padding: const EdgeInsets.all(35.0),
+        padding: const EdgeInsets.all(10.0),
         child: Center(
           child: GridView.builder(
             shrinkWrap: true,
