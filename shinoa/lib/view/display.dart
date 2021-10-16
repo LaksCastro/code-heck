@@ -35,7 +35,7 @@ class _DisplayState extends State<Display> {
     return Row(
       children: [
         const Text(
-          'MENU',
+          'DELETE',
           style: TextStyle(
             color: kTextColor,
           ),
@@ -113,6 +113,11 @@ class _DisplayState extends State<Display> {
     fontSize: 40,
   );
 
+  static const _kPaperColor = TextStyle(
+    color: kPaperColor,
+    fontSize: 40,
+  );
+
   static const _kHistoryTextStyle = TextStyle(
     color: kTextColor,
     fontSize: 20,
@@ -121,12 +126,12 @@ class _DisplayState extends State<Display> {
   Widget _buildResult() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: const [
         Text(
           '=',
-          style: _kEqualTextStyle,
+          style: _kPaperColor,
         ),
-        const Text(
+        Text(
           '2.222',
           style: _kResultTextStyle,
         ),
