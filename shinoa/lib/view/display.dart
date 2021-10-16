@@ -98,21 +98,6 @@ class _DisplayState extends State<Display> {
               ),
             ],
           ),
-          Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    kBackgroundColor,
-                    Colors.transparent,
-                    kBackgroundColor,
-                  ],
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
