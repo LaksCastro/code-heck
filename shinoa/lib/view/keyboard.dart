@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:shinoa/theme.dart';
+import 'package:shinoa/view/store.dart';
 
 class KeyBoard extends StatefulWidget {
-  final TextEditingController controller;
+  final Store store;
 
   const KeyBoard({
     Key? key,
-    required this.controller,
+    required this.store,
   }) : super(key: key);
 
   @override
@@ -16,25 +17,21 @@ class KeyBoard extends StatefulWidget {
 }
 
 class _KeyBoardState extends State<KeyBoard> {
-  TextEditingController get _controller => widget.controller;
+  TextEditingController get _controller => widget.store.controller;
 
   final bgPrimaryColor = const Color(0xff222831);
   final bgSecundaryColor = const Color(0xff393e46);
   final highlightColor = const Color(0xff00adb5);
 
-  var screenOperation = '';
-  var screenResult = '';
-  var previus = '';
-
   final List<String> buttons = [
     'C',
     '%',
-    '+=',
+    '+-',
     '/',
     '7',
     '8',
     '9',
-    'X',
+    '*',
     '4',
     '5',
     '6',
@@ -111,7 +108,7 @@ class _KeyBoardState extends State<KeyBoard> {
                               ),
                     onPressed: () {
                       if (buttons[index] == 'C') {
-                        _controller.clear();
+                        widget.store.clear();
 
                         /// clearScreenOp();
                         /// clearScreenResult();
@@ -119,9 +116,6 @@ class _KeyBoardState extends State<KeyBoard> {
                         /// _backspace();
                       } else if (buttons[index] == '=') {
                         equalPressed();
-                      } else if (isOperator(previus) &&
-                          isOperator(buttons[index])) {
-                        return;
                       } else {
                         _insertText(buttons[index]);
                       }
@@ -142,10 +136,17 @@ class _KeyBoardState extends State<KeyBoard> {
 
   void _insertText(String text) {
     final controllerText = _controller.text;
+
+    final max = controllerText.length;
+
     final textSelection = _controller.selection;
+
+    final start = textSelection.start;
+    final end = textSelection.end;
+
     final newText = controllerText.replaceRange(
-      textSelection.start,
-      textSelection.end,
+      start == -1 ? max : start,
+      end == -1 ? max : end,
       text,
     );
 
@@ -157,44 +158,18 @@ class _KeyBoardState extends State<KeyBoard> {
     );
   }
 
-  bool isOperator(String x) {
-    if (x == '+' || x == '-' || x == '*' || x == '%' || x == '=' || x == '/') {
-      return true;
-    }
-    return false;
-  }
-
-  void clearScreenOp() {
-    setState(() {
-      screenOperation = '';
-      previus = '';
-    });
-  }
-
-  void clearScreenResult() {
-    setState(() {
-      screenResult = '';
-      previus = '';
-    });
-  }
-
-  void removeLastChar() {
-    setState(() {
-      screenOperation =
-          screenOperation.substring(0, screenOperation.length - 1);
-    });
-  }
+  bool isOperator(String x) =>
+      x == '+' || x == '-' || x == '*' || x == '%' || x == '=' || x == '/';
 
   void equalPressed() {
-    String a = screenOperation;
-    Parser p = Parser();
-    Expression exp = p.parse(a);
-    ContextModel cm = ContextModel();
-    double eval = exp.evaluate(EvaluationType.REAL, cm);
+    final parser = Parser();
+    final exp = parser.parse(_controller.text);
+    final cm = ContextModel();
+    final eval = exp.evaluate(EvaluationType.REAL, cm);
 
-    setState(() {
-      screenResult = eval.toString();
-      clearScreenOp();
-    });
+    widget.store.previous.value = _controller.text;
+
+    _controller.text = '$eval'.substring(0, '$eval'.length.clamp(0, 8));
+    widget.store.moveCursorToTheEnd();
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/context_menu.dart';
+import 'package:shinoa/view/store.dart';
 
 import 'display.dart';
 import 'keyboard.dart';
@@ -15,18 +16,18 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  late final TextEditingController _controller;
+  late final Store _store;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = TextEditingController(text: '2.222');
+    _store = Store();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _store.dispose();
 
     super.dispose();
   }
@@ -39,12 +40,12 @@ class _CalculatorState extends State<Calculator> {
         backgroundColor: kBackgroundColor,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 0,
-        title: ContextMenu(controller: _controller),
+        title: ContextMenu(store: _store),
       ),
       body: Column(
         children: [
-          Display(controller: _controller),
-          KeyBoard(controller: _controller),
+          Display(store: _store),
+          KeyBoard(store: _store),
         ],
       ),
     );

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shinoa/theme.dart';
+import 'package:shinoa/view/store.dart';
 
 class Display extends StatefulWidget {
-  final TextEditingController controller;
+  final Store store;
 
   const Display({
     Key? key,
-    required this.controller,
+    required this.store,
   }) : super(key: key);
 
   @override
@@ -14,45 +15,30 @@ class Display extends StatefulWidget {
 }
 
 class _DisplayState extends State<Display> {
-  TextEditingController get _controller => widget.controller;
+  TextEditingController get _controller => widget.store.controller;
 
   Widget _buildHistory() {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(bottom: 6),
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          reverse: true,
-          children: const [
-            Padding(padding: EdgeInsets.only(bottom: 12)),
-            Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: _kHistoryTextStyle,
-              textAlign: TextAlign.right,
-            ),
-            Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: _kHistoryTextStyle,
-              textAlign: TextAlign.right,
-            ),
-            Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: _kHistoryTextStyle,
-              textAlign: TextAlign.right,
-            ),
-            Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: _kHistoryTextStyle,
-              textAlign: TextAlign.right,
-            ),
-            Text(
-              '88 x 4 + 1900 - 120 / 4',
-              style: _kHistoryTextStyle,
-              textAlign: TextAlign.right,
-            ),
-            Padding(padding: EdgeInsets.only(bottom: 12)),
-          ],
+        child: AnimatedBuilder(
+          animation: widget.store.previous,
+          builder: (context, child) {
+            return ListView(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              reverse: true,
+              children: [
+                const Padding(padding: EdgeInsets.only(bottom: 12)),
+                Text(
+                  widget.store.previous.value,
+                  style: _kHistoryTextStyle,
+                  textAlign: TextAlign.right,
+                ),
+                const Padding(padding: EdgeInsets.only(bottom: 12)),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -64,7 +50,6 @@ class _DisplayState extends State<Display> {
   );
   static const _kResultTextStyle = TextStyle(color: kLightText, fontSize: 40);
   static const _kHistoryTextStyle = TextStyle(color: kTextColor, fontSize: 20);
-
 
   Widget _buildResult() {
     return Row(

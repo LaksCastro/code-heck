@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shinoa/theme.dart';
+import 'package:shinoa/view/store.dart';
 
 class ContextMenu extends StatefulWidget {
-  final TextEditingController controller;
+  final Store store;
 
-  const ContextMenu({Key? key, required this.controller}) : super(key: key);
+  const ContextMenu({Key? key, required this.store}) : super(key: key);
 
   @override
   _ContextMenuState createState() => _ContextMenuState();
@@ -14,7 +15,7 @@ class ContextMenu extends StatefulWidget {
 class _ContextMenuState extends State<ContextMenu> {
   static const _kButtonLabelPadding = 12.0;
 
-  TextEditingController get _controller => widget.controller;
+  TextEditingController get _controller => widget.store.controller;
 
   Widget _buildMenuButton() {
     return Row(
