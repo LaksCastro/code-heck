@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/calculator.dart';
 
 void main() {
@@ -12,10 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: kFontFamily,
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
       ),
       home: Calculator(),
     );
   }
 }
-
