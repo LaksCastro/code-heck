@@ -45,6 +45,7 @@ class _KeyBoardState extends State<KeyBoard> {
     return Column(children: <Widget>[
       Center(
         child: GridView.builder(
+          shrinkWrap: true,
           itemCount: buttons.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4),

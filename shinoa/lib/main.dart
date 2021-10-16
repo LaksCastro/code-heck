@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/calculator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// Lock orientation
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(const App());
 }
 

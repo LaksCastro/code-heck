@@ -13,9 +13,9 @@ class _DisplayState extends State<Display> {
 
   Widget _buildMenuButton() {
     return Row(
-      children:  [
+      children: [
         Padding(
-          padding:const EdgeInsets.only(right: _kButtonLabelPadding),
+          padding: const EdgeInsets.only(right: _kButtonLabelPadding),
           child: Icon(
             Icons.menu,
             color: kAccentLightColor,
@@ -33,7 +33,7 @@ class _DisplayState extends State<Display> {
 
   Widget _buildBackspaceButton() {
     return Row(
-      children:  [
+      children: [
         const Text(
           'MENU',
           style: TextStyle(
@@ -92,7 +92,7 @@ class _DisplayState extends State<Display> {
   Widget _buildResult() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children:  [
+      children: [
         Text(
           '=',
           style: _kEqualTextStyle,
