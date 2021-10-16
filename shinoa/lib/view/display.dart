@@ -61,8 +61,15 @@ class _DisplayState extends State<Display> {
 
   Widget _buildHistory() {
     return ListView(
-      children: [
-        Text('88 x 4 + 1900 - 120 / 4'),
+      shrinkWrap: true,
+      children: const [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            '88 x 4 + 1900 - 120 / 4',
+            style: TextStyle(color: kTextColor),
+          ),
+        ),
       ],
     );
   }
