@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shinoa/theme.dart';
 
 import 'display.dart';
@@ -19,7 +20,7 @@ class _CalculatorState extends State<Calculator> {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 0,
       ),
       body: Column(
