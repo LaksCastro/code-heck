@@ -85,6 +85,7 @@ class _KeyBoardState extends State<KeyBoard> {
                                 borderRadius: BorderRadius.circular(50),
                                 side: const BorderSide(
                                   color: kPaperColor,
+                                  width: 3,
                                 ),
                               ),
                             ),
