@@ -39,7 +39,7 @@ class _CalculatorState extends State<Calculator> {
         backgroundColor: kBackgroundColor,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 0,
-        title: const ContextMenu(),
+        title: ContextMenu(controller: _controller),
       ),
       body: Column(
         children: [

@@ -85,6 +85,7 @@ class _DisplayState extends State<Display> {
             controller: _controller,
             readOnly: true,
             showCursor: true,
+            autofocus: true,
           ),
         ),
       ],

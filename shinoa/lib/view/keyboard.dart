@@ -51,99 +51,104 @@ class _KeyBoardState extends State<KeyBoard> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Row(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 25,
-            color: kAccentColor,
-          )
-        ],
-      ),
-      Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Center(
-          child: GridView.builder(
-            shrinkWrap: true,
-            itemCount: buttons.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4),
-            itemBuilder: (BuildContext contex, int index) {
-              bool equal = buttons[index] == '=';
-              bool ce = buttons[index] == 'C';
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  style: ce
-                      ? ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(kBackgroundColor),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
+    return Column(
+      children: <Widget>[
+        Row(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 25,
+              color: kAccentColor,
+            )
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: buttons.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4),
+              itemBuilder: (BuildContext contex, int index) {
+                bool equal = buttons[index] == '=';
+                bool ce = buttons[index] == 'C';
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ce
+                        ? ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(kBackgroundColor),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
-                                side: const BorderSide(color: kPaperColor)),
-                          ),
-                        )
-                      : equal
-                          ? ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(kAccentColor),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                              ),
-                            )
-                          : ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(kPaperColor),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
+                                side: const BorderSide(
+                                  color: kPaperColor,
                                 ),
                               ),
                             ),
-                  onPressed: () {
-                    if (buttons[index] == 'C') {
-                      clearScreenOp();
-                      clearScreenResult();
-                    } else if (buttons[index] == 'DEL') {
-                      removeLastChar();
-                    } else if (buttons[index] == '=') {
-                      equalPressed();
-                    } else if (isOperator(previus) &&
-                        isOperator(buttons[index])) {
-                      return;
-                    } else {
-                      setState(() {
-                        screenOperation += buttons[index];
-                        previus = buttons[index];
-                      });
-                    }
-                  },
-                  child: Text(
-                    buttons[index],
-                    style: const TextStyle(fontSize: 20),
+                          )
+                        : equal
+                            ? ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(kAccentColor),
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                              )
+                            : ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(kPaperColor),
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                              ),
+                    onPressed: () {
+                      if (buttons[index] == 'C') {
+                        _controller.clear();
+
+                        /// clearScreenOp();
+                        /// clearScreenResult();
+                      } else if (buttons[index] == 'DEL') {
+                        /// _backspace();
+                      } else if (buttons[index] == '=') {
+                        equalPressed();
+                      } else if (isOperator(previus) &&
+                          isOperator(buttons[index])) {
+                        return;
+                      } else {
+                        _insertText(buttons[index]);
+                      }
+                    },
+                    child: Text(
+                      buttons[index],
+                      style: const TextStyle(fontSize: 20),
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 
   void _insertText(String text) {
-    final text = _controller.text;
+    final controllerText = _controller.text;
     final textSelection = _controller.selection;
-
-    final newText =
-        text.replaceRange(textSelection.start, textSelection.end, text);
+    final newText = controllerText.replaceRange(
+      textSelection.start,
+      textSelection.end,
+      text,
+    );
 
     final textLength = text.length;
-
     _controller.text = newText;
     _controller.selection = textSelection.copyWith(
       baseOffset: textSelection.start + textLength,
