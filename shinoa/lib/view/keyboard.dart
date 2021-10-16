@@ -22,11 +22,12 @@ class _KeyBoardState extends State<KeyBoard> {
   final List<String> buttons = [
     'C',
     '%',
+    '+=',
     '/',
     '7',
     '8',
     '9',
-    '*',
+    'X',
     '4',
     '5',
     '6',
@@ -35,81 +36,84 @@ class _KeyBoardState extends State<KeyBoard> {
     '2',
     '3',
     '+',
+    'i',
     '0',
     '.',
-    'ANS',
     '=',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Center(
-        child: GridView.builder(
-          shrinkWrap: true,
-          itemCount: buttons.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4),
-          itemBuilder: (BuildContext contex, int index) {
-            bool equal = buttons[index] == '=';
-            bool ce = buttons[index] == 'C';
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                style: ce
-                    ? ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(kBackgroundColor),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              side: const BorderSide(color: kPaperColor)),
-                        ),
-                      )
-                    : equal
-                        ? ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(kAccentColor),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
+      Padding(
+        padding: const EdgeInsets.all(35.0),
+        child: Center(
+          child: GridView.builder(
+            shrinkWrap: true,
+            itemCount: buttons.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4),
+            itemBuilder: (BuildContext contex, int index) {
+              bool equal = buttons[index] == '=';
+              bool ce = buttons[index] == 'C';
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style: ce
+                      ? ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(kBackgroundColor),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
-                              ),
-                            ),
-                          )
-                        : ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(kPaperColor),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                            ),
+                                side: const BorderSide(color: kPaperColor)),
                           ),
-                onPressed: () {
-                  if (buttons[index] == 'C') {
-                    clearScreenOp();
-                    clearScreenResult();
-                  } else if (buttons[index] == 'DEL') {
-                    removeLastChar();
-                  } else if (buttons[index] == '=') {
-                    equalPressed();
-                  } else if (isOperator(previus) &&
-                      isOperator(buttons[index])) {
-                    return;
-                  } else {
-                    setState(() {
-                      screenOperation += buttons[index];
-                      previus = buttons[index];
-                    });
-                  }
-                },
-                child: Text(
-                  buttons[index],
-                  style: const TextStyle(fontSize: 20),
+                        )
+                      : equal
+                          ? ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(kAccentColor),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                              ),
+                            )
+                          : ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(kPaperColor),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                              ),
+                            ),
+                  onPressed: () {
+                    if (buttons[index] == 'C') {
+                      clearScreenOp();
+                      clearScreenResult();
+                    } else if (buttons[index] == 'DEL') {
+                      removeLastChar();
+                    } else if (buttons[index] == '=') {
+                      equalPressed();
+                    } else if (isOperator(previus) &&
+                        isOperator(buttons[index])) {
+                      return;
+                    } else {
+                      setState(() {
+                        screenOperation += buttons[index];
+                        previus = buttons[index];
+                      });
+                    }
+                  },
+                  child: Text(
+                    buttons[index],
+                    style: const TextStyle(fontSize: 20),
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     ]);
