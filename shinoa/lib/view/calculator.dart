@@ -24,9 +24,9 @@ class _CalculatorState extends State<Calculator> {
         elevation: 0,
       ),
       body: Column(
-        children: [
+        children: const [
           Display(),
-          Keyboard(),
+          KeyBoard()
         ],
       ),
     );
