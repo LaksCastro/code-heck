@@ -63,7 +63,6 @@ class _DisplayState extends State<Display> {
     fontSize: 40,
   );
   static const _kResultTextStyle = TextStyle(color: kLightText, fontSize: 40);
-  static const _kPaperColor = TextStyle(color: kPaperColor, fontSize: 40);
   static const _kHistoryTextStyle = TextStyle(color: kTextColor, fontSize: 20);
 
 
