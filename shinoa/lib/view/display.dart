@@ -103,18 +103,13 @@ class _DisplayState extends State<Display> {
     );
   }
 
-  static final _kEqualTextStyle = TextStyle(
-    color: kAccentLightColor,
+  static const _kEqualTextStyle = TextStyle(
+    color: kTextColor,
     fontSize: 40,
   );
 
   static const _kResultTextStyle = TextStyle(
     color: kLightText,
-    fontSize: 40,
-  );
-
-  static const _kPaperColor = TextStyle(
-    color: kPaperColor,
     fontSize: 40,
   );
 
@@ -129,7 +124,7 @@ class _DisplayState extends State<Display> {
       children: const [
         Text(
           '=',
-          style: _kPaperColor,
+          style: _kEqualTextStyle,
         ),
         Text(
           '2.222',
