@@ -9,6 +9,14 @@ import 'theme.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
+  /// Set status bar color
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      systemNavigationBarColor: kBackgroundColor, // navigation bar color
+      statusBarColor: kBackgroundColor, // status bar color
+    ),
+  );
+
   /// Lock orientation
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
