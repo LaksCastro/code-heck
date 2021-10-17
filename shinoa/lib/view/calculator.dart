@@ -38,7 +38,7 @@ class _CalculatorState extends State<Calculator> {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
         title: ContextMenu(store: _store),
       ),
