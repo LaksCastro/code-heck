@@ -46,89 +46,123 @@ class _KeyBoardState extends State<KeyBoard> {
     '=',
   ];
 
+  ButtonStyle _buildCEButtonStyle() {
+    return ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(kBackgroundColor),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+          side: const BorderSide(
+            color: kPaperColor,
+            width: 3,
+          ),
+        ),
+      ),
+    );
+  }
+
+  ButtonStyle _buildEqualButtonStyle() {
+    return ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(kAccentColor),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+    );
+  }
+
+  ButtonStyle _buildDefaultButtonStyle() {
+    return ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(kPaperColor),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+      ),
+    );
+  }
+
+  void _onButtonPressed(int index) {
+    if (buttons[index] == 'C') {
+      widget.store.clear();
+
+      /// clearScreenOp();
+      /// clearScreenResult();
+    } else if (buttons[index] == 'DEL') {
+      /// _backspace();
+    } else if (buttons[index] == '=') {
+      equalPressed();
+    } else {
+      _insertText(buttons[index]);
+    }
+  }
+
+  static const kBottomToolbar = 50.0;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 25,
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Positioned(
+          top: -kBottomToolbar / 2,
+          right: 0,
+          left: 0,
+          child: Container(
+            height: kBottomToolbar,
+            decoration: const BoxDecoration(
               color: kAccentColor,
-            )
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Center(
-            child: GridView.builder(
-              shrinkWrap: true,
-              itemCount: buttons.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4),
-              itemBuilder: (BuildContext contex, int index) {
-                bool equal = buttons[index] == '=';
-                bool ce = buttons[index] == 'C';
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    style: ce
-                        ? ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(kBackgroundColor),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                                side: const BorderSide(
-                                  color: kPaperColor,
-                                  width: 3,
-                                ),
-                              ),
-                            ),
-                          )
-                        : equal
-                            ? ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(kAccentColor),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                ),
-                              )
-                            : ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(kPaperColor),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                ),
-                              ),
-                    onPressed: () {
-                      if (buttons[index] == 'C') {
-                        widget.store.clear();
-
-                        /// clearScreenOp();
-                        /// clearScreenResult();
-                      } else if (buttons[index] == 'DEL') {
-                        /// _backspace();
-                      } else if (buttons[index] == '=') {
-                        equalPressed();
-                      } else {
-                        _insertText(buttons[index]);
-                      }
-                    },
-                    child: Text(
-                      buttons[index],
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                  ),
-                );
-              },
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
             ),
           ),
+        ),
+        Column(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                color: kBackgroundColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+              ),
+              height: kBottomToolbar / 2,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: buttons.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4),
+                  itemBuilder: (BuildContext contex, int index) {
+                    bool equal = buttons[index] == '=';
+                    bool ce = buttons[index] == 'C';
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        style: ce
+                            ? _buildCEButtonStyle()
+                            : equal
+                                ? _buildEqualButtonStyle()
+                                : _buildDefaultButtonStyle(),
+                        onPressed: () => _onButtonPressed(index),
+                        child: Text(
+                          buttons[index],
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -144,18 +178,33 @@ class _KeyBoardState extends State<KeyBoard> {
     final start = textSelection.start;
     final end = textSelection.end;
 
-    final newText = controllerText.replaceRange(
+    var newText = controllerText.replaceRange(
       start == -1 ? max : start,
       end == -1 ? max : end,
       text,
     );
 
+    final initialDuplicatedZeros = RegExp(r'^0*');
+
+    final nonNumeric = RegExp(r'[^0-9.]');
+
+    final rawNumbers = newText.split(nonNumeric);
+
+    final formattedNumbers = rawNumbers
+        .map((e) => e.length > 1 ? e.replaceAll(initialDuplicatedZeros, '') : e)
+        .toList();
+
+    for (var i = 0; i < rawNumbers.length; i++) {
+      newText = newText.replaceAll(rawNumbers[i], formattedNumbers[i]);
+    }
     final textLength = text.length;
     _controller.text = newText;
     _controller.selection = textSelection.copyWith(
       baseOffset: textSelection.start + textLength,
       extentOffset: textSelection.start + textLength,
     );
+
+    widget.store.moveCursorToTheEnd();
   }
 
   bool isOperator(String x) =>
@@ -169,7 +218,9 @@ class _KeyBoardState extends State<KeyBoard> {
 
     widget.store.previous.value = _controller.text;
 
-    _controller.text = '$eval'.substring(0, '$eval'.length.clamp(0, 8));
+    var text = '$eval'.substring(0, '$eval'.length.clamp(0, 8));
+
+    _controller.text = text;
     widget.store.moveCursorToTheEnd();
   }
 }

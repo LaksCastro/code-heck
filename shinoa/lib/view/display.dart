@@ -52,28 +52,31 @@ class _DisplayState extends State<Display> {
   static const _kHistoryTextStyle = TextStyle(color: kTextColor, fontSize: 20);
 
   Widget _buildResult() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Text(
-          '=',
-          style: _kEqualTextStyle,
-        ),
-        Expanded(
-          child: TextField(
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-            ),
-            cursorColor: kAccentColor,
-            textAlign: TextAlign.end,
-            style: _kResultTextStyle,
-            controller: _controller,
-            readOnly: true,
-            showCursor: true,
-            autofocus: true,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 24.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            '=',
+            style: _kEqualTextStyle,
           ),
-        ),
-      ],
+          Expanded(
+            child: TextField(
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+              cursorColor: kAccentColor,
+              textAlign: TextAlign.end,
+              style: _kResultTextStyle,
+              controller: _controller,
+              readOnly: true,
+              showCursor: true,
+              autofocus: true,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
