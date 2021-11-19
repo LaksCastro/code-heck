@@ -64,7 +64,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
     <td align="center">
       <a href="https://github.com/luanbatistadev">
         <img src="https://avatars.githubusercontent.com/u/56078396?v=4" width="100px;" alt=""/><br />
-       <sub><b>Luan Rafael</b></sub>
+       <sub><b>Luan Batista</b></sub>
       </a>
     </td>
     <td align="center">
