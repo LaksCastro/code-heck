@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:killua/main.dart';
 import 'package:flutter/material.dart';
+import 'package:killua/main.dart';
 
 class CustomClockPainter extends CustomPainter {
   static const kCentralPointSize = 10.0;
@@ -31,17 +31,19 @@ class CustomClockPainter extends CustomPainter {
     required double lineWidth,
     required double radians,
   }) {
-    assert((() {
-      if (strokeWidth > size.height / 2) {
-        throw Exception('You need specify a valid [strokeWidth]');
-      }
+    assert(
+      (() {
+        if (strokeWidth > size.height / 2) {
+          throw Exception('You need specify a valid [strokeWidth]');
+        }
 
-      if (lineWidth < 0 && lineWidth > 1) {
-        throw Exception('[lineWidth] must be between 0.0 and 1.0');
-      }
+        if (lineWidth < 0 && lineWidth > 1) {
+          throw Exception('[lineWidth] must be between 0.0 and 1.0');
+        }
 
-      return true;
-    })());
+        return true;
+      })(),
+    );
 
     final center = _calcCenter(size);
 
@@ -92,16 +94,17 @@ class CustomClockPainter extends CustomPainter {
   }
 
   double get _minutesRadians => _toRadians(
-      max: 1000 * 60 * 60,
-      current: (() {
-        final millisecond = DateTime.now().millisecond;
-        final seconds = DateTime.now().second * 1000;
-        final minutes = DateTime.now().minute * 60 * 1000;
+        max: 1000 * 60 * 60,
+        current: (() {
+          final millisecond = DateTime.now().millisecond;
+          final seconds = DateTime.now().second * 1000;
+          final minutes = DateTime.now().minute * 60 * 1000;
 
-        final milliseconds = millisecond + seconds + minutes;
+          final milliseconds = millisecond + seconds + minutes;
 
-        return milliseconds / 1;
-      })());
+          return milliseconds / 1;
+        })(),
+      );
 
   double get _secondsRadians => _toRadians(
         max: 60 * 1000,
@@ -110,17 +113,18 @@ class CustomClockPainter extends CustomPainter {
       );
 
   double get _hoursRadians => _toRadians(
-      max: 1000 * 60 * 60 * 24 / 2,
-      current: (() {
-        final millisecond = DateTime.now().millisecond;
-        final seconds = DateTime.now().second * 1000;
-        final minutes = DateTime.now().minute * 60 * 1000;
-        final hours = DateTime.now().hour * 60 * 60 * 1000;
+        max: 1000 * 60 * 60 * 24 / 2,
+        current: (() {
+          final millisecond = DateTime.now().millisecond;
+          final seconds = DateTime.now().second * 1000;
+          final minutes = DateTime.now().minute * 60 * 1000;
+          final hours = DateTime.now().hour * 60 * 60 * 1000;
 
-        final milliseconds = millisecond + seconds + minutes + hours;
+          final milliseconds = millisecond + seconds + minutes + hours;
 
-        return milliseconds / 1;
-      })());
+          return milliseconds / 1;
+        })(),
+      );
 
   double _toRadians({required double max, required double current}) {
     final tween = Tween(begin: -pi / 2, end: pi * 1.5);
