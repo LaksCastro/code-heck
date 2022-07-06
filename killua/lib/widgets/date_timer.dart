@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:killua/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:killua/main.dart';
 
 class DateTimer extends StatefulWidget {
   const DateTimer({Key? key}) : super(key: key);

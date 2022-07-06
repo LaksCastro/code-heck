@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/store.dart';
 
 class KeyBoard extends StatefulWidget {
-  final Store store;
-
   const KeyBoard({
     Key? key,
     required this.store,
   }) : super(key: key);
+  final Store store;
 
   @override
   _KeyBoardState createState() => _KeyBoardState();
@@ -139,10 +137,11 @@ class _KeyBoardState extends State<KeyBoard> {
                   shrinkWrap: true,
                   itemCount: buttons.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
+                    crossAxisCount: 4,
+                  ),
                   itemBuilder: (BuildContext contex, int index) {
-                    bool equal = buttons[index] == '=';
-                    bool ce = buttons[index] == 'C';
+                    final bool equal = buttons[index] == '=';
+                    final bool ce = buttons[index] == 'C';
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
@@ -184,9 +183,9 @@ class _KeyBoardState extends State<KeyBoard> {
       text,
     );
 
-    final initialDuplicatedZeros = RegExp(r'^0*');
+    final initialDuplicatedZeros = RegExp('^0*');
 
-    final nonNumeric = RegExp(r'[^0-9.]');
+    final nonNumeric = RegExp('[^0-9.]');
 
     final rawNumbers = newText.split(nonNumeric);
 
@@ -218,7 +217,7 @@ class _KeyBoardState extends State<KeyBoard> {
 
     widget.store.previous.value = _controller.text;
 
-    var text = '$eval'.substring(0, '$eval'.length.clamp(0, 8));
+    final text = '$eval'.substring(0, '$eval'.length.clamp(0, 8));
 
     _controller.text = text;
     widget.store.moveCursorToTheEnd();

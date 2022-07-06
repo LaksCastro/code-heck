@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:killua/widgets/animated_clock.dart';
 import 'package:killua/widgets/date_timer.dart';
-import 'package:flutter/material.dart';
 
 const kBackgroundColor = Color(0xFF212628);
 const kPrimaryColor = Color(0xFFDC3644);

@@ -3,12 +3,11 @@ import 'package:shinoa/theme.dart';
 import 'package:shinoa/view/store.dart';
 
 class Display extends StatefulWidget {
-  final Store store;
-
   const Display({
     Key? key,
     required this.store,
   }) : super(key: key);
+  final Store store;
 
   @override
   _DisplayState createState() => _DisplayState();

@@ -1,8 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:killua/main.dart';
 import 'package:killua/painters/custom_clock_painter.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 
 class ClockWrapper extends StatefulWidget {
   const ClockWrapper({Key? key}) : super(key: key);
@@ -37,8 +36,6 @@ class _ClockWrapperState extends State<ClockWrapper>
 
     _controller = AnimationController(
       vsync: this,
-      lowerBound: 0,
-      upperBound: 1,
       duration: const Duration(milliseconds: 2000),
       value: 1,
     );
@@ -67,7 +64,6 @@ class _ClockWrapperState extends State<ClockWrapper>
               final rValue = 1.0 - value;
 
               return Container(
-                child: const CustomClockAnimation(),
                 decoration: BoxDecoration(
                   border: Border.all(color: kLightColor),
                   shape: BoxShape.circle,
@@ -77,12 +73,15 @@ class _ClockWrapperState extends State<ClockWrapper>
                       blurRadius: (rValue * _blurRadius) + _kMinBlurRadius,
                       color: _kShadowColor,
                       offset: Offset(
-                          _kOffsetX, (rValue * _kOffsetY) + _kMinOffsetY),
+                        _kOffsetX,
+                        (rValue * _kOffsetY) + _kMinOffsetY,
+                      ),
                       spreadRadius:
                           (_spreadRadius * rValue) + _kMinSpreadRadius,
                     ),
                   ],
                 ),
+                child: const CustomClockAnimation(),
               );
             },
           ),

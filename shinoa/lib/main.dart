@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'custom/no_glow_scroll_behavior.dart';
-import 'view/calculator.dart';
-
 import 'theme.dart';
+import 'view/calculator.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,12 +25,11 @@ void main() {
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Shinoa App',
       builder: (context, child) {
         return ScrollConfiguration(
           behavior: NoGlowScrollBehavior(),
