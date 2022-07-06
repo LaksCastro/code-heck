@@ -33,6 +33,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
     Resultado final
   </summary>
   <img src="https://user-images.githubusercontent.com/51419598/136676843-f8290cbb-62d8-4799-aca5-d04d51ea4d63.png" width="350">
+  <img src="killua/assets/images/nexus_1.png" width="350">
 </details>
 <details>
   <summary>

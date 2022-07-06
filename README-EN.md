@@ -30,6 +30,7 @@ We can change anything about the lives, the main aim is just to have fun, build 
     Final result
   </summary>
   <img src="https://user-images.githubusercontent.com/51419598/136676843-f8290cbb-62d8-4799-aca5-d04d51ea4d63.png" width="350">
+  <img src="killua/assets/images/nexus_1.png" width="350">
 </details>
 <details>
   <summary>
