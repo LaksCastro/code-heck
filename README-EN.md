@@ -52,6 +52,16 @@ We can change anything about the lives, the main aim is just to have fun, build 
 <a href="https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s">
   <img src="https://user-images.githubusercontent.com/51419598/137382448-1c85237d-2d4d-433f-97e5-5c651809ed7a.png" height="300">
 </a>
+<br>
+<br>
+
+<details>
+  <summary>
+    Final result
+  </summary>
+  
+  <img src="shinoa/assets/images/nexus_5.png" width="350">
+</details>
 
 <hr />
 
@@ -62,7 +72,7 @@ We can change anything about the lives, the main aim is just to have fun, build 
     <td align="center">
       <a href="https://github.com/luanbatistadev">
         <img src="https://avatars.githubusercontent.com/u/56078396?v=4" width="100px;" alt=""/><br />
-       <sub><b>Luan Rafael</b></sub>
+       <sub><b>Luan Batista</b></sub>
       </a>
     </td>
     <td align="center">
