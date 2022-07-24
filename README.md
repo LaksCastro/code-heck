@@ -82,7 +82,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
     <td align="center">
       <a href="https://github.com/LaksCastro">
         <img src="https://avatars2.githubusercontent.com/u/51419598?s=400&v=4" width="100px;" alt=""/><br />
-       <sub><b>Laks Castro</b></sub>
+       <sub><b>AlexRintt</b></sub>
       </a>
     </td>
   </tr>
