@@ -40,7 +40,7 @@ We can change anything about the lives, the main aim is just to have fun, build 
 </details>
 
 - **CodeHeck #0**
-- Time: **4h**                                                          
+- Time: **4h**
 - Live: **[available in PT-BR](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - Design: **[Available on Dribble](https://dribbble.com/shots/7477712-Minimalist-Clock-App-UI-Kit)**
 - _Hunter X Hunter_
@@ -76,9 +76,9 @@ We can change anything about the lives, the main aim is just to have fun, build 
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/LaksCastro">
+      <a href="https://github.com/alexrintt">
         <img src="https://avatars2.githubusercontent.com/u/51419598?s=400&v=4" width="100px;" alt=""/><br />
-       <sub><b>Laks Castro</b></sub>
+       <sub><b>Alex Rintt</b></sub>
       </a>
     </td>
   </tr>

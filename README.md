@@ -1,6 +1,5 @@
 <a href="/README-EN.md"><img src="https://img.shields.io/badge/README-English-%23C21B42"></a>
 
-
 - ## CodeHeck
 
 🎨 Uma pequena série de vídeos no Youtube codando alguns protótipos do Figma e do Dribble.
@@ -15,7 +14,7 @@ Em resumo, essa série terá bastante:
 
 Se quiser participar das lives que vão ocorrer todo final de semana, [só colar no Discord.](https://discord.gg/Ay3SpX6kTa)
 
-As lives podem mudar de foco, de conteúdo. A intenção é se divertir, construir alguns projetos e aprender. 
+As lives podem mudar de foco, de conteúdo. A intenção é se divertir, construir alguns projetos e aprender.
 
 <hr />
 
@@ -43,7 +42,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
 </details>
 
 - **CodeHeck #0**
-- Tempo: **4 horas**                                                          
+- Tempo: **4 horas**
 - Live: **[disponível](https://www.youtube.com/watch?v=uo37jLj7Qgo&t=3518s)**
 - Design: **[Disponível no Dribble](https://dribbble.com/shots/7477712-Minimalist-Clock-App-UI-Kit)**
 - _Hunter X Hunter_
@@ -80,7 +79,7 @@ As lives podem mudar de foco, de conteúdo. A intenção é se divertir, constru
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/LaksCastro">
+      <a href="https://github.com/alexrintt">
         <img src="https://avatars2.githubusercontent.com/u/51419598?s=400&v=4" width="100px;" alt=""/><br />
        <sub><b>AlexRintt</b></sub>
       </a>
